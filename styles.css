@@ -3,11 +3,11 @@
 /* Padding below the footer and lighter body text */
 
 body {
+  background-color:#FFF;
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: #5a5a5a;
 }
-
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
@@ -99,4 +99,70 @@ body {
   font-size: 18px;
   color: #fff;
   font-weight: bold;
+}
+
+/* iframe localizacao
+//////////////////////////////////////////////////////*/
+
+.iframe-localizacao {
+  height: 400px;
+  border-radius: 10px;
+  border: 2px solid #B93C0C;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .iframe-localizacao {
+    width: 690px;
+  }
+}
+@media screen and (min-width: 1080px) {
+  .iframe-localizacao {
+    width: 950px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .iframe-localizacao {
+    width: 330px;
+  }
+
+}
+
+/* form fale conosco
+///////////////////////////////////////////////////////*/
+.form-fale-conosco {
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #B93C0C;
+}
+
+/* belts
+///////////////////////////////////////////////////////*/
+
+.belt-orange-color {
+  background-color: #B93C0C; 
+  height: 3px;
+}
+.belt-blue-color {
+  background-color: #0C55AB; 
+  height: 3px;
+}
+
+/* margins
+///////////////////////////////////////////////////////*/
+
+.margin-top-5px {
+  margin-top: 5px;
+}
+.margin-top-10px {
+  margin-top: 10px;
+}
+.margin-top-15px {
+  margin-top: 15px;
+}
+.margin-top-30px {
+  margin-top: 30px;
+}
+
+.margin-bottom-30px {
+  margin-bottom: 30px;
 }

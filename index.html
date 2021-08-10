@@ -14,24 +14,78 @@
     <!-- Favicons -->
     <!-- <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180"> -->
 
+    <!-- Custom javascript and json -->
+    <script src="./json/receitas.json.js"></script>
+
     <!-- Custom styles for this template -->
     <link href="styles.css" rel="stylesheet">
-
+      
     <style>
 
       .text-background-carousel {
         padding: 5px;
         background-color: rgba(0, 0, 0, 0.6);
       }
-      .hr-default-color {
-        background-color: #B93C0C; 
-        height: 30px;
-      }
+     
       .bg-blue {
         background-color: #0C55AB;
       }
 
     </style>
+
+    <script>
+
+
+        var receitas = JSON.parse(receitas);
+
+        function getReceitas(corte) {
+          document.getElementById('modalBody').innerHTML = '';
+          var receitasSelecionadas = receitas.filter( (receita) => {
+            return receita.corte === corte;
+          });
+
+          if(receitasSelecionadas.length > 0) {  
+            for(var j = 0; j < receitasSelecionadas.length; j++) {
+              document.getElementById('modalReceitasTitulo').innerHTML = 'Receitas de ' + receitasSelecionadas[j].corte;
+              var h3Nome = document.createElement('h3');
+              h3Nome.innerHTML = receitasSelecionadas[j].nome;
+              document.getElementById('modalBody').append(h3Nome);
+              
+              var h4Igredientes = document.createElement('h4');
+              h4Igredientes.innerHTML = 'Ingredientes';
+              document.getElementById('modalBody').append(h4Igredientes);
+              var ingredientes = receitasSelecionadas[j].ingredientes;
+              var ulComponent = document.createElement('ul');              
+              
+              for(var i = 0; i < ingredientes.length; i++) {
+                  var liComponent = document.createElement('li');
+                  liComponent.innerHTML = ingredientes[i].ingrediente;
+                  ulComponent.append(liComponent);
+                
+              }
+              document.getElementById('modalBody').append(ulComponent);
+              
+              
+              var h4ModoPreparar = document.createElement('h4');
+              h4ModoPreparar.innerHTML = 'Modo de preparar';
+              document.getElementById('modalBody').append(h4ModoPreparar);
+              var pModoPreparar = document.createElement('p');
+              pModoPreparar.innerHTML = receitasSelecionadas[j].preparo;
+              document.getElementById('modalBody').append(pModoPreparar);
+              
+              var h4Rendimento = document.createElement('h4');
+              h4Rendimento.innerHTML = 'Rendimento';
+              document.getElementById('modalBody').append(h4Rendimento);
+              var pRendimento = document.createElement('p');
+              pRendimento.innerHTML = receitasSelecionadas[j].rendimento;
+              document.getElementById('modalBody').append(pRendimento);
+            }
+          } else {
+            document.getElementById('modalBody').append('Não há receitas para o corte selecionado');
+          }
+        }
+
+    </script>
   </head>
   <body>
     
@@ -75,7 +129,6 @@
         </div>
       </nav>
     </header>
-    <div class="hr-default-color"></div>
     <main>
       <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -111,6 +164,7 @@
               <div class="carousel-caption text-end">
                 <h1 class="text-background-carousel">Opções de kit churrasco</h1>
                 <p class="text-background-carousel">Escolha entre nossos mais variados kits para que seu churrasco aconteça sem problemas</p>
+                <a class="btn btn-primary" role="button" href="#">Escolher</a>
               </div>
             </div>
           </div>
@@ -123,7 +177,8 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
-        <div class="hr-default-color"></div>
+        <div class="belt-orange-color"></div>
+        <div class="belt-blue-color"></div>
       </div>
 
       <div class="container">
@@ -132,62 +187,280 @@
           <div class="col-lg-6 offset-lg-3 text-center">
             <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="assets/images/delivery.svg"/>
             <h2>Faça seu Pedido pelo Whatsapp que Nós entregaremos para você!</h2>
+            <h1>(11) 97705-6627</h1>
             <p>Disponivel em regiões proximas da nossa Localização.</p>
+            <p>2ª à 6ª feira das 08:00 às 20:00 - Sábado das 08:00 às 16:00 - Domingo das 10:00 às 12:00.</p>
             <a class="btn btn-dark" role="button" target="_blank" href="#">
               Veja nossa Localização
             </a>
           </div>
         </div>
+     
+        <div class="belt-orange-color margin-top-30px"></div>
+        <div class="belt-blue-color margin-bottom-30px"></div>
+      
+        <div class="row featurette text-start">
+          <div class="col-md-12">
+            <h1 class="display-4 fw-normal">Cortes e Receitas</h1>
+            <p class="fs-5 text-muted">Saiba como preparar cada corte com nossas deliciosas receitas</p>  
+          </div>
+          <div class="col-md-12 text-center">
+            <img src="assets/images/mapa_bovino_reduce.png" width="500px"/>
+          </div>
+          <div class="col-md-12">
+            <div class="row row-cols-1 row-cols-sm-3 row-cols-md-6 row-cols-lg-6 g-4 py-5">
+              <div class="col d-flex align-items-start">
+                <div>
+                  <h4 class="fw-bold mb-0">1.Acem</h4>
+                  <p>Carne macia, sem muito e com bastante nervo.</p>
+                  <button 
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onclick="getReceitas('Acem')">  
+                    Ver receitas
+                  </button>
+                </div>
+              </div>
+              <div class="col d-flex align-items-start">
+                <div>
+                  <h4 class="fw-bold mb-0">2.Alcatra</h4>
+                  <p>Carne macia, sem muito e com bastante nervo.</p>
+                  <button 
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onclick="getReceitas('Alcatra')">  
+                    Ver receitas
+                  </button>
+                </div>
+              </div>
+              <div class="col d-flex align-items-start">
+                <div>
+                  <h4 class="fw-bold mb-0">3.Baby Beef</h4>
+                  <p>Carne macia, sem muito e com bastante nervo.</p>
+                  <button 
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onclick="getReceitas('Baby Beef')">  
+                    Ver receitas
+                  </button>
+                </div>
+              </div>
+              <div class="col d-flex align-items-start">
+                <div>
+                  <h4 class="fw-bold mb-0">4.Carne moida</h4>
+                  <p>Carne macia, sem muito e com bastante nervo.</p>
+                  <button 
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onclick="getReceitas('Carne moida')">  
+                    Ver receitas
+                  </button>
+                </div>
+              </div>
+              <div class="col d-flex align-items-start">
+                <div>
+                  <h4 class="fw-bold mb-0">5.Contra Filé</h4>
+                  <p>Carne macia, sem muito e com bastante nervo.</p>
+                  <button 
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onclick="getReceitas('Contra Filé')">  
+                    Ver receitas
+                  </button>
+                </div>
+              </div>
+              <div class="col d-flex align-items-start">
+                <div>
+                  <h4 class="fw-bold mb-0">6.Costela</h4>
+                  <p>Carne macia, sem muito e com bastante nervo.</p>
+                  <button 
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onclick="getReceitas('Costela')">  
+                    Ver receitas
+                  </button>
+                </div>
+              </div>
+              <div class="col d-flex align-items-start">
+                <div>
+                  <h4 class="fw-bold mb-0">7.Coxão duro</h4>
+                  <p>Carne macia, sem muito e com bastante nervo.</p>
+                  <button 
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onclick="getReceitas('Coxão duro')">  
+                    Ver receitas
+                  </button>
+                </div>
+              </div>
+              <div class="col d-flex align-items-start">
+                <div>
+                  <h4 class="fw-bold mb-0">8.Coxão mole</h4>
+                  <p>Carne macia, sem muito e com bastante nervo.</p>
+                  <button 
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onclick="getReceitas('Coxão mole')">  
+                    Ver receitas
+                  </button>
+                </div>
+              </div>
+              <div class="col d-flex align-items-start">
+                <div>
+                  <h4 class="fw-bold mb-0">9.Filé Mignon</h4>
+                  <p>Carne macia, sem muito e com bastante nervo.</p>
+                  <button 
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onclick="getReceitas('Filé mignon')">  
+                    Ver receitas
+                  </button>
+                </div>
+              </div>
+              <div class="col d-flex align-items-start">
+                <div>
+                  <h4 class="fw-bold mb-0">10.Lagarto</h4>
+                  <p>Carne macia, sem muito e com bastante nervo.</p>
+                  <button 
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onclick="getReceitas('Lagarto')">  
+                    Ver receitas
+                  </button>
+                </div>
+              </div>
+              <div class="col d-flex align-items-start">
+                <div>
+                  <h4 class="fw-bold mb-0">11.Lombo</h4>
+                  <p>Carne macia, sem muito e com bastante nervo.</p>
+                  <button 
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onclick="getReceitas('Lombo')">  
+                    Ver receitas
+                  </button>
+                </div>
+              </div>
+              <div class="col d-flex align-items-start">
+                <div>
+                  <h4 class="fw-bold mb-0">12.Fígado</h4>
+                  <p>Carne macia, sem muito e com bastante nervo.</p>
+                  <button 
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onclick="getReceitas('Fígado')">  
+                    Ver receitas
+                  </button>
+                </div>
+              </div>
+              <div class="col d-flex align-items-start">
+                <div>
+                  <h4 class="fw-bold mb-0">13.Musculo</h4>
+                  <p>Carne macia, sem muito e com bastante nervo.</p>
+                  <button 
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onclick="getReceitas('Músculo')">  
+                    Ver receitas
+                  </button>
+                </div>
+              </div>
+              <div class="col d-flex align-items-start">
+                <div>
+                  <h4 class="fw-bold mb-0">14.Osso buco</h4>
+                  <p>Carne macia, sem muito e com bastante nervo.</p>
+                  <button 
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onclick="getReceitas('Osso buco')">  
+                    Ver receitas
+                  </button>
+                </div>
+              </div>
+              <div class="col d-flex align-items-start">
+                <div>
+                  <h4 class="fw-bold mb-0">15.Picanha</h4>
+                  <p>Carne macia, sem muito e com bastante nervo.</p>
+                  <button 
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onclick="getReceitas('Picanha')">  
+                    Ver receitas
+                  </button>
+                </div>
+              </div>
+              <div class="col d-flex align-items-start">
+                <div>
+                  <h4 class="fw-bold mb-0">16.Rabada</h4>
+                  <p>Carne macia, sem muito e com bastante nervo.</p>
+                  <button 
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onclick="getReceitas('Rabada')">  
+                    Ver receitas
+                  </button>
+                </div>
+              </div>
+            </div>
 
+          </div>
+        </div>
 
-        <!-- START THE FEATURETTES -->
-
-        <hr class="featurette-divider">
+        <div class="belt-orange-color margin-top-30px"></div>
+        <div class="belt-blue-color margin-bottom-30px"></div>
 
         <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">Conheça nossa história.</h2>
-            <h2><span class="text-muted">Nossa loja.</span></h2> 
+          <div class="col-md-7 order-md-2">
+            <h2 class="display-4 fw-normal">Conheça nossa história</h2>
+            <br/>
+            <h2><span class="text-muted">Nossa loja</span></h2> 
             <p class="lead">Localizada no Bairro de Higienópolis desde 2001, A Carnes Higienópolis foi sempre direcionada para funcionar como um diferencial no ramo de carnes e derivados, primando pelo atendimento diferenciado com carnes de frigoríficos conceituados e já consagrados, levando também em consideração um sistema informatizado que diferencia o cliente tornando-o único e com seu pedido personalizado e entregue em sua casa.</p>
           </div>
-          <div class="col-md-5">
+          <div class="col-md-5 order-md-1">
             <img src="assets/images/loja_1.svg" width="450px"/>
           </div>
         </div>
 
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-            <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
-          </div>
-          <div class="col-md-5 order-md-1">
-            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-            <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
-          </div>
-          <div class="col-md-5">
-            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
+        <div class="belt-orange-color margin-top-30px"></div>
+        <div class="belt-blue-color margin-bottom-30px"></div>
 
         <div class="row featurette">
           <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
             <div class="col-md-12">
               <h1 class="display-4 fw-normal">Escolha seu Kit</h1>
-              <p class="fs-5 text-muted">Que Nós montamos para você preparar um super churrasco!</p>  
+              <p class="fs-5 text-muted">que Nós montamos para você preparar um super churrasco!</p>  
             </div>
             <div class="col">
               <div class="card mb-4 rounded-3 shadow-sm">
@@ -252,7 +525,8 @@
           </div>
         </div>
 
-        <hr class="featurette-divider">
+        <div class="belt-orange-color margin-top-30px"></div>
+        <div class="belt-blue-color margin-bottom-30px"></div>
         
         <div class="row featurette">
           <div class="col-md-12">
@@ -262,9 +536,8 @@
             </div>
           </div>
           <div class="col-md-12 text-center">
-            <iframe 
-              width="425"
-              height="350"
+            <iframe
+              class="iframe-localizacao"
               frameborder="0"
               scrolling="no"
               marginheight="0"
@@ -283,17 +556,18 @@
           </div>
         </div>
 
-        <hr class="featurette-divider">
+        <div class="belt-orange-color margin-top-30px"></div>
+        <div class="belt-blue-color margin-bottom-30px"></div>
 
-        <div class="row featurette">
-          <form class="needs-validation" novalidate="">
-            <div class="row g-3">
-              <div class="col-md-12">
+        <div class="row">
+          <form class="form-fale-conosco col-sm-12 col-md-12 col-lg-6" novalidate="">
+            <div class="row">
+              <div class="col-12">
                 <h1 class="display-4 fw-normal">Fale conosco</h1>
                 <p class="fs-5 text-muted">Deixe suas opniões, sugestões ou críticas que iremos entrar em contato.</p>  
               </div>
-              <div class="col-sm-6">
-                <div class="col-sm-12">
+              <div class="col-12">
+                <div class="col-12">
                   <label for="name" class="form-label">Nome</label>
                   <input type="text" class="form-control" id="name" placeholder="Nome" value="" required="">
                   <div class="invalid-feedback">
@@ -331,22 +605,38 @@
               </div>
           </form>
         </div>
-        <hr class="featurette-divider">
-
-        <!-- /END THE FEATURETTES -->
+        <div class="belt-orange-color margin-top-30px"></div>
+        <div class="belt-blue-color margin-bottom-30px"></div>
 
       </div><!-- /.container -->
 
 
-      <!-- FOOTER -->
+      <!-- rodapé -->
       <footer class="container">
         <p class="float-end"><a href="#">Back to top</a></p>
+        
         <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>
+      
+      <!-- Modal receitas -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="modalReceitasTitulo" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalReceitasTitulo">Receitas de acem</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modalBody">
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
-
-
-        
+      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   
   </body>
