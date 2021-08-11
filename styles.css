@@ -1,28 +1,49 @@
-/* GLOBAL STYLES
+/* Estilos gerais
 -------------------------------------------------- */
-/* Padding below the footer and lighter body text */
 
 body {
-  background-color:#FFF;
+  background-color:#092e5a;
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: #5a5a5a;
 }
+h1, h2, h4, span, p {
+  color: #FFFFFF;
+}
 
-/* CUSTOMIZE THE CAROUSEL
+.btn-custom-default {
+  color: #FFF;
+  background-color: #fc7641;
+  border-color: #fc7641;
+  font-weight: bold;
+}
+.btn-custom-higienopolis:hover {
+  background-color: #fd9d77;
+  border-color: #fd9d77;
+  color:#092e5a;
+}
+
+.btn-custom-higienopolis-blue {
+  color: #FFF;
+  background-color: #092e5a;
+  border-color: #092e5a;
+  font-weight: bold;
+}
+.btn-custom-higienopolis-blue:hover {
+  color: #FFF;
+  background-color: #265b9c;
+  border-color: #265b9c;
+  font-weight: bold;
+}
+/* Carousel
 -------------------------------------------------- */
-
-/* Carousel base class */
 .carousel {
   margin-bottom: 4rem;
 }
-/* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   bottom: 3rem;
   z-index: 10;
 }
-
-/* Declare heights because of positioning of img element */
 .carousel-item {
   height: 32rem;
 }
@@ -35,24 +56,21 @@ body {
 }
 
 
-/* MARKETING CONTENT
+/* navbar
 -------------------------------------------------- */
 
-/* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
-  margin-bottom: 1.5rem;
-  text-align: center;
+.bg-blue {
+  background-color: #092e5a;
 }
-.marketing h2 {
-  font-weight: 400;
-}
-/* rtl:begin:ignore */
-.marketing .col-lg-4 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
-}
-/* rtl:end:ignore */
 
+.navbar-dark .navbar-nav .nav-link {
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #fc7641;
+}
 
 /* Featurettes
 ------------------------- */
@@ -92,16 +110,20 @@ body {
   }
 }
 
-/* menu css
--------------------------------------------------- */
+/* card
+//////////////////////////////////////////////////////*/
 
-.link-menu {
-  font-size: 18px;
-  color: #fff;
-  font-weight: bold;
+.card {
+  border: 1px solid ;
+}
+.card-header {
+  background-color: #fc7641;
+}
+.card-body {
+  background-color: #eceff3;
 }
 
-/* iframe localizacao
+/* iframe localization
 //////////////////////////////////////////////////////*/
 
 .iframe-localizacao {
@@ -130,6 +152,7 @@ body {
 /* form fale conosco
 ///////////////////////////////////////////////////////*/
 .form-fale-conosco {
+  background-color: #eceff3;
   padding: 20px;
   border-radius: 10px;
   border: 2px solid #B93C0C;
@@ -144,6 +167,11 @@ body {
 }
 .belt-blue-color {
   background-color: #0C55AB; 
+  height: 3px;
+}
+
+.belt-white-color {
+  background-color: #FFFFFF; 
   height: 3px;
 }
 
@@ -162,7 +190,6 @@ body {
 .margin-top-30px {
   margin-top: 30px;
 }
-
 .margin-bottom-30px {
   margin-bottom: 30px;
 }
