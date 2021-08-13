@@ -9,86 +9,25 @@
     <title>Carnes Higienópolis</title>
     
     <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
   
     <!-- Favicons -->
     <!-- <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180"> -->
 
     <!-- Custom javascript and json -->
-    <script src="./json/receitas.json.js"></script>
+    <script src="./scripts-novo/scripts.js"></script>
 
     <!-- Custom styles for this template -->
-    <link href="styles.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet">
       
-    <style>
-
-      .text-background-carousel {
-        padding: 5px;
-        background-color: rgba(0, 0, 0, 0.6);
-      }
-     
-     
-    </style>
-
-    <script>
-        var receitas = JSON.parse(receitas);
-
-        function getReceitas(corte) {
-          document.getElementById('modalBody').innerHTML = '';
-          var receitasSelecionadas = receitas.filter( (receita) => {
-            return receita.corte === corte;
-          });
-
-          if(receitasSelecionadas.length > 0) {  
-            for(var j = 0; j < receitasSelecionadas.length; j++) {
-              document.getElementById('modalReceitasTitulo').innerHTML = 'Receitas de ' + receitasSelecionadas[j].corte;
-              var h3Nome = document.createElement('h3');
-              h3Nome.innerHTML = receitasSelecionadas[j].nome;
-              document.getElementById('modalBody').append(h3Nome);
-              
-              var h4Igredientes = document.createElement('h4');
-              h4Igredientes.innerHTML = 'Ingredientes';
-              document.getElementById('modalBody').append(h4Igredientes);
-              var ingredientes = receitasSelecionadas[j].ingredientes;
-              var ulComponent = document.createElement('ul');              
-              
-              for(var i = 0; i < ingredientes.length; i++) {
-                  var liComponent = document.createElement('li');
-                  liComponent.innerHTML = ingredientes[i].ingrediente;
-                  ulComponent.append(liComponent);
-                
-              }
-              document.getElementById('modalBody').append(ulComponent);
-              
-              
-              var h4ModoPreparar = document.createElement('h4');
-              h4ModoPreparar.innerHTML = 'Modo de preparar';
-              document.getElementById('modalBody').append(h4ModoPreparar);
-              var pModoPreparar = document.createElement('p');
-              pModoPreparar.innerHTML = receitasSelecionadas[j].preparo;
-              document.getElementById('modalBody').append(pModoPreparar);
-              
-              var h4Rendimento = document.createElement('h4');
-              h4Rendimento.innerHTML = 'Rendimento';
-              document.getElementById('modalBody').append(h4Rendimento);
-              var pRendimento = document.createElement('p');
-              pRendimento.innerHTML = receitasSelecionadas[j].rendimento;
-              document.getElementById('modalBody').append(pRendimento);
-            }
-          } else {
-            document.getElementById('modalBody').append('Não há receitas para o corte selecionado');
-          }
-        }
-
-    </script>
   </head>
   <body>
     
     <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-blue">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            Carnes Higienópolis
+            <img src="assets/images/logo_novo.png" width="50px" />
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -194,47 +133,49 @@
         <div class="belt-orange-color margin-top-30px"></div>
         <div class="belt-white-color margin-bottom-30px"></div>
       
-        <div class="row featurette text-start">
-          <div class="col-md-12">
-            <h1 class="display-4 fw-normal">Cortes e Receitas</h1>
-            <p>Saiba como preparar cada corte com nossas deliciosas receitas</p>  
+        <div class="row text-start">
+          <div class="col-md-12 margin-bottom-50px">
+            <h1 class="display-4 fw-normal">Dicas de receitas por corte</h1>
+            <p class="lead">Saiba como preparar cada corte com nossas deliciosas receitas</p>
           </div>
-          <div class="col-md-12 text-center">
-            <img src="assets/images/mapa_bovino_reduce.png" width="500px"/>
+          <div class="col-md-4 text-center bg-plate padding-top-10px padding-bottom-10px border-top-2px border-bottom-2px border-left-2px">
+            <h4 class="fw-bold mb-0 text-blue">Acem</h4>
+            <p class="text-blue">Carne macia e magra da parte dianteira do gado, próximo ao pescoço. É um dos maiores cortes do boi.</p>
+            <div class="col-md-12">
+              <img class="img-receitas" src="assets/images/banner_1.svg" width="60%"/>
+            </div>
+            <button 
+              type="button"
+              class="btn btn-custom-higienopolis-blue margin-top-15px"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              onclick="getReceitas('Acem')">  
+              Ver receitas
+            </button>
+          </div>
+          <div class="col-md-4 text-center bg-plate padding-top-10px padding-bottom-10px border-top-2px border-bottom-2px">
+            <img src="assets/images/mapa_bovino_reduce.svg" width="100%"/>
+          </div>
+          <div class="col-md-4 text-center bg-plate padding-top-10px padding-bottom-10px border-top-2px border-bottom-2px border-right-2px">
+            <h4 class="fw-bold mb-0 text-blue">Alcatra</h4>
+                <p class="text-blue">Carne macia, sem muito e com bastante nervo.</p>
+                <div class="col-md-12">
+                  <img class="img-receitas" src="assets/images/banner_1.svg" width="60%"/>
+                </div>
+                <button 
+                  type="button"
+                  class="btn btn-custom-higienopolis-blue margin-top-15px"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  onclick="getReceitas('Alcatra')">  
+                  Ver receitas
+                </button>
           </div>
           <div class="col-md-12">
             <div class="row row-cols-1 row-cols-sm-3 row-cols-md-6 row-cols-lg-6 g-4 py-5">
               <div class="col d-flex align-items-start">
                 <div>
-                  <h4 class="fw-bold mb-0">1.Acem</h4>
-                  <p>Carne macia, sem muito e com bastante nervo.</p>
-                  <button 
-                    type="button"
-                    class="btn btn-custom-default"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                    onclick="getReceitas('Acem')">  
-                    Ver receitas
-                  </button>
-                </div>
-              </div>
-              <div class="col d-flex align-items-start">
-                <div>
-                  <h4 class="fw-bold mb-0">2.Alcatra</h4>
-                  <p>Carne macia, sem muito e com bastante nervo.</p>
-                  <button 
-                    type="button"
-                    class="btn btn-custom-default"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                    onclick="getReceitas('Alcatra')">  
-                    Ver receitas
-                  </button>
-                </div>
-              </div>
-              <div class="col d-flex align-items-start">
-                <div>
-                  <h4 class="fw-bold mb-0">3.Baby Beef</h4>
+                  <h4 class="fw-bold mb-0">Baby Beef</h4>
                   <p>Carne macia, sem muito e com bastante nervo.</p>
                   <button 
                     type="button"
@@ -248,7 +189,7 @@
               </div>
               <div class="col d-flex align-items-start">
                 <div>
-                  <h4 class="fw-bold mb-0">4.Carne moida</h4>
+                  <h4 class="fw-bold mb-0">Carne moida</h4>
                   <p>Carne macia, sem muito e com bastante nervo.</p>
                   <button 
                     type="button"
@@ -262,7 +203,7 @@
               </div>
               <div class="col d-flex align-items-start">
                 <div>
-                  <h4 class="fw-bold mb-0">5.Contra Filé</h4>
+                  <h4 class="fw-bold mb-0">Contra Filé</h4>
                   <p>Carne macia, sem muito e com bastante nervo.</p>
                   <button 
                     type="button"
@@ -276,7 +217,7 @@
               </div>
               <div class="col d-flex align-items-start">
                 <div>
-                  <h4 class="fw-bold mb-0">6.Costela</h4>
+                  <h4 class="fw-bold mb-0">Costela</h4>
                   <p>Carne macia, sem muito e com bastante nervo.</p>
                   <button 
                     type="button"
@@ -290,7 +231,7 @@
               </div>
               <div class="col d-flex align-items-start">
                 <div>
-                  <h4 class="fw-bold mb-0">7.Coxão duro</h4>
+                  <h4 class="fw-bold mb-0">Coxão duro</h4>
                   <p>Carne macia, sem muito e com bastante nervo.</p>
                   <button 
                     type="button"
@@ -304,7 +245,7 @@
               </div>
               <div class="col d-flex align-items-start">
                 <div>
-                  <h4 class="fw-bold mb-0">8.Coxão mole</h4>
+                  <h4 class="fw-bold mb-0">Coxão mole</h4>
                   <p>Carne macia, sem muito e com bastante nervo.</p>
                   <button 
                     type="button"
@@ -318,7 +259,7 @@
               </div>
               <div class="col d-flex align-items-start">
                 <div>
-                  <h4 class="fw-bold mb-0">9.Filé Mignon</h4>
+                  <h4 class="fw-bold mb-0">Filé Mignon</h4>
                   <p>Carne macia, sem muito e com bastante nervo.</p>
                   <button 
                     type="button"
@@ -332,7 +273,7 @@
               </div>
               <div class="col d-flex align-items-start">
                 <div>
-                  <h4 class="fw-bold mb-0">10.Lagarto</h4>
+                  <h4 class="fw-bold mb-0">Lagarto</h4>
                   <p>Carne macia, sem muito e com bastante nervo.</p>
                   <button 
                     type="button"
@@ -346,7 +287,7 @@
               </div>
               <div class="col d-flex align-items-start">
                 <div>
-                  <h4 class="fw-bold mb-0">11.Lombo</h4>
+                  <h4 class="fw-bold mb-0">Lombo</h4>
                   <p>Carne macia, sem muito e com bastante nervo.</p>
                   <button 
                     type="button"
@@ -360,7 +301,7 @@
               </div>
               <div class="col d-flex align-items-start">
                 <div>
-                  <h4 class="fw-bold mb-0">12.Fígado</h4>
+                  <h4 class="fw-bold mb-0">Fígado</h4>
                   <p>Carne macia, sem muito e com bastante nervo.</p>
                   <button 
                     type="button"
@@ -436,7 +377,7 @@
         <div class="belt-orange-color margin-top-30px"></div>
         <div class="belt-white-color margin-bottom-30px"></div>
 
-        <div class="row featurette">
+        <div class="row">
           <div class="col-md-7 order-md-2">
             <h1 class="display-4 fw-normal">Conheça nossa história</h1>
             <br/>
@@ -444,20 +385,19 @@
             <p class="lead">Localizada no Bairro de Higienópolis desde 2001, A Carnes Higienópolis foi sempre direcionada para funcionar como um diferencial no ramo de carnes e derivados, primando pelo atendimento diferenciado com carnes de frigoríficos conceituados e já consagrados, levando também em consideração um sistema informatizado que diferencia o cliente tornando-o único e com seu pedido personalizado e entregue em sua casa.</p>
           </div>
           <div class="col-md-5 order-md-1">
-            <img src="assets/images/loja_1.svg" width="450px"/>
+            <img class="img-loja" src="assets/images/loja_1.svg" width="100%"/>
           </div>
         </div>
 
         <div class="belt-orange-color margin-top-30px"></div>
         <div class="belt-white-color margin-bottom-30px"></div>
 
-        <div class="row featurette">
-          <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="row text-center">
             <div class="col-md-12">
               <h1 class="display-4 fw-normal">Escolha seu Kit</h1>
               <p class="lead">que Nós montamos para você preparar um super churrasco!</p>  
             </div>
-            <div class="col">
+            <div class="col-md-4">
               <div class="card mb-4 rounded-3 shadow-sm">
                 <div class="card-header py-3">
                   <h4 class="my-0 fw-normal">Kit 1</h4>
@@ -477,7 +417,7 @@
                 </div>
               </div>
             </div>
-            <div class="col">
+            <div class="col-md-4">
               <div class="card mb-4 rounded-3 shadow-sm">
                 <div class="card-header py-3">
                   <h4 class="my-0 fw-normal">Kit 2</h4>
@@ -497,7 +437,7 @@
                 </div>
               </div>
             </div>
-            <div class="col">
+            <div class="col-md-4">
               <div class="card mb-4 rounded-3 shadow-sm">
                 <div class="card-header py-3 text-white">
                   <h4 class="my-0 fw-normal">Kit 3</h4>
@@ -517,7 +457,6 @@
                 </div>
               </div>
             </div>
-          </div>
         </div>
 
         <div class="belt-orange-color margin-top-30px"></div>
@@ -602,12 +541,54 @@
         </div>
       </div>
     </main>
-    <footer class="container-fluid bg-dark">
+    <footer class="container-fluid bg-dark footer-site">
       <div class="belt-orange-color margin-top-30px"></div>
       <div class="belt-white-color"></div>
-      <p class="float-end"><a href="#">Back to top</a></p>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <img class="margin-top-100px" src="assets/images/logo_novo.png" width="100px;" />
+            <p>&copy; Carnes Higienópolis 2017–2021</p>
+          </div>
+          <div class="col-md-4 ">
+            <div class="row">
+              <h4 class="margin-top-30px">Pagamento</h4>
+              <p>Aceitamos pagamentos em débito, crédito e vale alimentação.</p>
+            </div>
+            <div class="row">
+              <h4 class="margin-top-30px">Redes Sociais</h4>
+              <div class="col-2 text-center margin-top-15px">
+                <img class="img-logo-instagram" src="assets/images/instagram.png" />
+              </div>
+              <div class="col-10 text-start margin-top-15px">
+                <a class="link-secondary" href="https://www.instagram.com/carneshigienopolis/" target="_blank">Carnes Higienópolis</a>
+              </div>
+              <div class="col-2 text-center margin-top-15px">
+                <img class="img-logo-instagram" src="assets/images/facebook.png" />
+              </div>
+              <div class="col-10 text-start margin-top-15px">
+                <a class="link-secondary" href="https://pt-br.facebook.com/carnes.higienopolis" target="_blank">Facebook</a>
+              </div>
+            </div>  
+            
+            </ul>
+          </div>
+          <div class="col-md-4 ">
+            <h4 class="margin-top-30px">Mapa do site</h4>
+                <p><a class="link-secondary" href="#">A loja</a></p>
+                <p><a class="link-secondary" href="#">Trajetória da carne</a></p>
+                <p><a class="link-secondary" href="#">Receitas</a></p>
+                <p><a class="link-secondary" href="#">Localização</a></p>
+                <p><a class="link-secondary" href="#">Escolha seu kit churrasco</a></p>
+                <p><a class="link-secondary" href="#">Fale conosco</a></p>
+                <p><a class="link-secondary" href="#">Trabalhe conosco</a></p>
+            </ul>
+          </div>
+        </div>
+        
+        <p class="float-end"><a href="#">Back to top</a></p>
+      </div>
       
-      <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
     </footer>
 
     <!-- Modal receitas -->
@@ -615,7 +596,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalReceitasTitulo">Receitas de acem</h5>
+            <h5 class="modal-title" id="modalReceitasTitulo"></h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" id="modalBody">
@@ -627,7 +608,7 @@
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./scripts-novo/bootstrap.bundle.min.js"></script>
   
   </body>
 </html>

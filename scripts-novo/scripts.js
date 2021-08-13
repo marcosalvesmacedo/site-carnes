@@ -1,4 +1,4 @@
-receitas = [
+var receitas = [
     { "corte": "Acem",
       "nome": "Acem a Jardineira",
       "ingredientes": [
@@ -556,3 +556,50 @@ receitas = [
       "rendimento": "Não informado"
     },
   ]
+
+function getReceitas(corte) {
+  document.getElementById('modalBody').innerHTML = '';
+  var receitasSelecionadas = receitas.filter( (receita) => {
+    return receita.corte === corte;
+  });
+
+  if(receitasSelecionadas.length > 0) {  
+    for(var j = 0; j < receitasSelecionadas.length; j++) {
+      document.getElementById('modalReceitasTitulo').innerHTML = 'Receitas de ' + receitasSelecionadas[j].corte;
+      var h3Nome = document.createElement('h3');
+      h3Nome.innerHTML = receitasSelecionadas[j].nome;
+      document.getElementById('modalBody').append(h3Nome);
+      
+      var h4Igredientes = document.createElement('h4');
+      h4Igredientes.innerHTML = 'Ingredientes';
+      document.getElementById('modalBody').append(h4Igredientes);
+      var ingredientes = receitasSelecionadas[j].ingredientes;
+      var ulComponent = document.createElement('ul');              
+      
+      for(var i = 0; i < ingredientes.length; i++) {
+          var liComponent = document.createElement('li');
+          liComponent.innerHTML = ingredientes[i].ingrediente;
+          ulComponent.append(liComponent);
+        
+      }
+      document.getElementById('modalBody').append(ulComponent);
+      
+      
+      var h4ModoPreparar = document.createElement('h4');
+      h4ModoPreparar.innerHTML = 'Modo de preparar';
+      document.getElementById('modalBody').append(h4ModoPreparar);
+      var pModoPreparar = document.createElement('p');
+      pModoPreparar.innerHTML = receitasSelecionadas[j].preparo;
+      document.getElementById('modalBody').append(pModoPreparar);
+      
+      var h4Rendimento = document.createElement('h4');
+      h4Rendimento.innerHTML = 'Rendimento';
+      document.getElementById('modalBody').append(h4Rendimento);
+      var pRendimento = document.createElement('p');
+      pRendimento.innerHTML = receitasSelecionadas[j].rendimento;
+      document.getElementById('modalBody').append(pRendimento);
+    }
+  } else {
+    document.getElementById('modalBody').append('Não há receitas para o corte selecionado');
+  }
+}

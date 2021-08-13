@@ -35,6 +35,14 @@ h1, h2, h4, span, p {
   border-color: #265b9c;
   font-weight: bold;
 }
+
+.bg-plate {
+  background-color:#eceff3;
+}
+.text-blue {
+  color: #092e5a;
+}
+
 /* Carousel
 -------------------------------------------------- */
 .carousel {
@@ -53,6 +61,10 @@ h1, h2, h4, span, p {
   left: 0;
   min-width: 100%;
   height: 32rem;
+}
+.text-background-carousel {
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 
@@ -114,10 +126,11 @@ h1, h2, h4, span, p {
 //////////////////////////////////////////////////////*/
 
 .card {
-  border: 1px solid ;
+  border: 2px solid #B93C0C;
 }
 .card-header {
   background-color: #fc7641;
+  border-bottom: 2px solid #B93C0C;
 }
 .card-body {
   background-color: #eceff3;
@@ -175,6 +188,17 @@ h1, h2, h4, span, p {
   height: 3px;
 }
 
+/* img
+///////////////////////////////////////////////////////*/
+
+.img-receitas, .img-loja {
+  border: 2px solid #B93C0C;
+}
+
+.img-logo-instagram {
+  width: 30px;
+}
+
 /* margins
 ///////////////////////////////////////////////////////*/
 
@@ -190,6 +214,64 @@ h1, h2, h4, span, p {
 .margin-top-30px {
   margin-top: 30px;
 }
+.margin-top-100px {
+  margin-top: 100px;
+}
 .margin-bottom-30px {
   margin-bottom: 30px;
+}
+.margin-bottom-50px {
+  margin-bottom: 50px;
+}
+
+/* padding
+///////////////////////////////////////////////////////*/
+
+.padding-top-10px {
+  padding-top: 10px;
+}
+.padding-bottom-10px {
+  padding-bottom: 10px;
+}
+
+/* border
+///////////////////////////////////////////////////////*/
+
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .border-left-2px {
+    border-left: 2px solid #B93C0C;
+  }
+  .border-top-2px {
+    border-top: 2px solid #B93C0C;
+  }
+  .border-right-2px {
+    border-right: 2px solid #B93C0C;
+  }
+  .border-bottom-2px {
+    border-bottom: 2px solid #B93C0C;
+  }
+}
+@media screen and (min-width: 1080px) {
+  .border-left-2px {
+    border-left: 2px solid #B93C0C;
+  }
+  .border-top-2px {
+    border-top: 2px solid #B93C0C;
+  }
+  .border-right-2px {
+    border-right: 2px solid #B93C0C;
+  }
+  .border-bottom-2px {
+    border-bottom: 2px solid #B93C0C;
+  }
+}
+
+/* footer 
+///////////////////////////////////////////////////////*/
+
+.footer-site {
+  position: relative;
+  bottom: -50px;
+  height: 400px;
 }
