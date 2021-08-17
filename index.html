@@ -8,16 +8,7 @@
     <meta name="author" content="Marcos Macedo">
     <title>Carnes Higienópolis</title>
     
-    <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
-  
-    <!-- Favicons -->
-    <!-- <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180"> -->
-
-    <!-- Custom javascript and json -->
-    <script src="./scripts-novo/scripts.js"></script>
-
-    <!-- Custom styles for this template -->
     <link href="./css/styles.css" rel="stylesheet">
       
   </head>
@@ -26,37 +17,32 @@
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="assets/images/logo_novo.png" width="50px" />
-          </a>
+          <a class="logo" href="#carousel"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
-                <a class="nav-link active link-menu" aria-current="page" href="#">Home</a>
+                <a class="nav-link link-menu" href="#loja">A loja</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link link-menu" href="#">A loja</a>
+                <a class="nav-link link-menu" href="#trajetoria">Trajetória da carne</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link link-menu" href="#">Trajetória da carne</a>
+                <a class="nav-link link-menu" href="#receitas">Receitas</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link link-menu" href="#">Receitas</a>
+                <a class="nav-link link-menu" href="#localizacao">Localização</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link link-menu" href="#">Localização</a>
+                <a class="nav-link link-menu" href="#kitChurrasco">Escolha seu kit churrasco</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link link-menu" href="#">Escolha seu kit churrasco</a>
+                <a class="nav-link link-menu" href="#faleConosco">Fale conosco</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link link-menu" href="#">Fale conosco</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link link-menu" href="#">Trabalhe conosco</a>
+                <a class="nav-link link-menu" href="#trabalheConosco">Trabalhe conosco</a>
               </li>
             </ul>
           </div>
@@ -64,6 +50,7 @@
       </nav>
     </header>
     <main>
+      <a name="carousel"></a>
       <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -87,7 +74,7 @@
             <div class="container">
               <div class="carousel-caption">
                 <h1 class="text-background-carousel">Praticidade para você</h1>
-                <p class="text-background-carousel">Para pedidos acima de 250gr, embalamos a vácuo e etiquetamos</p>
+                <p class="text-background-carousel">Para pedidos acima de 250 gramas, Nós embalamos a vácuo e etiquetamos</p>
               </div>
             </div>
           </div>
@@ -97,7 +84,7 @@
             <div class="container">
               <div class="carousel-caption text-end">
                 <h1 class="text-background-carousel">Opções de kit churrasco</h1>
-                <p class="text-background-carousel">Escolha entre nossos mais variados kits para que seu churrasco aconteça sem problemas</p>
+                <p class="text-background-carousel">Escolha entre nossos mais variados kits para que seu churrasco seja uma celebração de sucesso!</p>
                 <a class="btn btn-custom-higienopolis-blue" role="button" href="#">Escolher</a>
               </div>
             </div>
@@ -124,7 +111,7 @@
             <h2>(11) 97705-6627</h2>
             <p class="lead">Disponivel em regiões proximas da nossa Localização.</p>
             <p class="lead">2ª à 6ª feira das 08:00 às 20:00 - Sábado das 08:00 às 16:00 - Domingo das 10:00 às 12:00.</p>
-            <a class="btn btn-custom-default" role="button" target="_blank" href="#">
+            <a class="btn btn-custom-default link-menu" href="#localizacao">
               Veja nossa Localização
             </a>
           </div>
@@ -132,7 +119,7 @@
      
         <div class="belt-orange-color margin-top-30px"></div>
         <div class="belt-white-color margin-bottom-30px"></div>
-      
+        <a name="receitas"></a>
         <div class="row text-start">
           <div class="col-md-12 margin-bottom-50px">
             <h1 class="display-4 fw-normal">Dicas de receitas por corte</h1>
@@ -376,7 +363,7 @@
 
         <div class="belt-orange-color margin-top-30px"></div>
         <div class="belt-white-color margin-bottom-30px"></div>
-
+        <a name="loja"></a>
         <div class="row">
           <div class="col-md-7 order-md-2">
             <h1 class="display-4 fw-normal">Conheça nossa história</h1>
@@ -391,7 +378,7 @@
 
         <div class="belt-orange-color margin-top-30px"></div>
         <div class="belt-white-color margin-bottom-30px"></div>
-
+        <a name="kitChurrasco"/>
         <div class="row text-center">
             <div class="col-md-12">
               <h1 class="display-4 fw-normal">Escolha seu Kit</h1>
@@ -461,8 +448,8 @@
 
         <div class="belt-orange-color margin-top-30px"></div>
         <div class="belt-white-color margin-bottom-30px"></div>
-        
-        <div class="row featurette">
+        <a name="localizacao"></a>
+        <div class="row">
           <div class="col-md-12">
             <div class="text-center">
               <h1 class="display-4 fw-normal">Localização</h1>
@@ -492,9 +479,9 @@
 
         <div class="belt-orange-color margin-top-30px"></div>
         <div class="belt-white-color margin-bottom-30px"></div>
-
         <div class="row">
-          <form class="form-fale-conosco col-sm-12 col-md-12 col-lg-6" novalidate="">
+          <a name="faleConosco"></a>
+          <form class="form-fale-conosco col-sm-12 col-md-12 col-lg-6">
             <div class="row">
               <div class="col-12">
                 <h1 class="display-4 fw-normal text-muted">Fale conosco</h1>
@@ -548,12 +535,12 @@
         <div class="row">
           <div class="col-md-4">
             <img class="margin-top-100px" src="assets/images/logo_novo.png" width="100px;" />
-            <p>&copy; Carnes Higienópolis 2017–2021</p>
+            <p class="text-muted">&copy; Carnes Higienópolis 2017–2021</p>
           </div>
           <div class="col-md-4 ">
             <div class="row">
               <h4 class="margin-top-30px">Pagamento</h4>
-              <p>Aceitamos pagamentos em débito, crédito e vale alimentação.</p>
+              <p class="text-muted">Aceitamos pagamentos em débito, crédito e vale alimentação.</p>
             </div>
             <div class="row">
               <h4 class="margin-top-30px">Redes Sociais</h4>
@@ -575,18 +562,16 @@
           </div>
           <div class="col-md-4 ">
             <h4 class="margin-top-30px">Mapa do site</h4>
-                <p><a class="link-secondary" href="#">A loja</a></p>
-                <p><a class="link-secondary" href="#">Trajetória da carne</a></p>
-                <p><a class="link-secondary" href="#">Receitas</a></p>
-                <p><a class="link-secondary" href="#">Localização</a></p>
-                <p><a class="link-secondary" href="#">Escolha seu kit churrasco</a></p>
-                <p><a class="link-secondary" href="#">Fale conosco</a></p>
-                <p><a class="link-secondary" href="#">Trabalhe conosco</a></p>
+                <p><a class="link-secondary link-menu" href="#loja">A loja</a></p>
+                <p><a class="link-secondary link-menu" href="#trajetoria">Trajetória da carne</a></p>
+                <p><a class="link-secondary link-menu" href="#receitas">Receitas</a></p>
+                <p><a class="link-secondary link-menu" href="#localizacao">Localização</a></p>
+                <p><a class="link-secondary link-menu" href="#kitChurrasco">Escolha seu kit churrasco</a></p>
+                <p><a class="link-secondary link-menu" href="#faleConosco">Fale conosco</a></p>
+                <p><a class="link-secondary link-menu" href="#trabalheConosco">Trabalhe conosco</a></p>
             </ul>
           </div>
         </div>
-        
-        <p class="float-end"><a href="#">Back to top</a></p>
       </div>
       
     </footer>
@@ -595,20 +580,22 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="modalReceitasTitulo" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header bg-dark">
             <h5 class="modal-title" id="modalReceitasTitulo"></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" id="modalBody">
             
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer bg-dark">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
           </div>
         </div>
       </div>
     </div>
     <script src="./scripts-novo/bootstrap.bundle.min.js"></script>
-  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./scripts-novo/scripts.js"></script>
+
   </body>
 </html>

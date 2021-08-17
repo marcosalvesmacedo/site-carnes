@@ -603,3 +603,23 @@ function getReceitas(corte) {
     document.getElementById('modalBody').append('Não há receitas para o corte selecionado');
   }
 }
+
+function scrollLink(target) {
+  var anchorName = $("a[name='" + target + "']");
+  $('html,body').animate({scrollTop: anchorName.offset().top - 110}, 'slow')
+}
+
+
+$(document).ready(function () {
+  $(".link-menu").click(function (event) {
+    event.preventDefault();
+    var likSelected = event.target.href.split('#')[1];
+    if(likSelected) {
+      scrollLink(likSelected);
+    }
+  });
+
+  $('.navbar-nav>li>a').on('click', function(){
+    $('.navbar-collapse').collapse('hide');
+  });
+});

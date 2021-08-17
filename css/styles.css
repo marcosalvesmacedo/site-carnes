@@ -84,24 +84,11 @@ h1, h2, h4, span, p {
   color: #fc7641;
 }
 
-/* Featurettes
-------------------------- */
-
-.featurette-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+@media (min-width: 768px) {
+  .navbar-expand-md .navbar-collapse {
+      margin-left: 15px !important;
+  }
 }
-
-/* Thin out the marketing headings */
-.featurette-heading {
-  font-weight: 300;
-  line-height: 1;
-  /* rtl:remove */
-  letter-spacing: -.05rem;
-}
-
-
-/* RESPONSIVE CSS
--------------------------------------------------- */
 
 @media (min-width: 40em) {
   /* Bump up size of carousel content */
@@ -111,15 +98,7 @@ h1, h2, h4, span, p {
     line-height: 1.4;
   }
 
-  .featurette-heading {
-    font-size: 50px;
-  }
-}
-
-@media (min-width: 62em) {
-  .featurette-heading {
-    margin-top: 7rem;
-  }
+ 
 }
 
 /* card
@@ -198,7 +177,13 @@ h1, h2, h4, span, p {
 .img-logo-instagram {
   width: 30px;
 }
-
+.logo {
+  width: 50px;
+  height: 50px;
+  background-image: url("../assets/images/logo_novo.png");
+  background-size: cover; 
+  background-repeat: no-repeat, repeat;
+}
 /* margins
 ///////////////////////////////////////////////////////*/
 
@@ -274,4 +259,17 @@ h1, h2, h4, span, p {
   position: relative;
   bottom: -50px;
   height: 400px;
+}
+
+/*
+///////////////////////////////////////////////////////*/
+.modal-title {
+  color: #FFFFFF;
+}
+.modal-body {
+  background-color: #092e5a;
+  color: #FFFFFF;
+}
+.modal-header .btn-close {
+ color: #FFFFFF;
 }
