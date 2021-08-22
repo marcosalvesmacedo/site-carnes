@@ -261,6 +261,12 @@ h1, h2, h4, span, p {
   height: 400px;
 }
 
+@media screen and (max-width: 767px) {
+  .footer-site {
+    height: 1100px;
+  }
+}
+
 /*
 ///////////////////////////////////////////////////////*/
 .modal-title {
